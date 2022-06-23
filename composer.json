@@ -1,0 +1,29 @@
+{
+    "name": "Store/Manager",
+    "description": "Website Package",
+    "authors": [
+        {
+            "name": "Phynix Media",
+            "email": "david.adebayo@phynixmedia.co.uk"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Phynix\\":"src"
+        }
+    },
+    "scripts": {
+        "test": [
+            "vendor/bin/phpunit packages/store/manager/tests/unit/*.php"
+        ]
+    },
+    "extra": {
+        "laravel":{
+            "providers":[
+                "Store\\Manager\\StoreServiceProvider"
+            ]
+        }
+    }
+}

@@ -1,5 +1,5 @@
 {
-    "name": "Store/Manager",
+    "name": "store/manager",
     "description": "Website Package",
     "authors": [
         {
@@ -8,11 +8,10 @@
         }
     ],
     "minimum-stability": "stable",
-    "require": {},
     "autoload": {
         "psr-4": {
             "Phynix\\":"src"
-        }
+        },
     },
     "scripts": {
         "test": [

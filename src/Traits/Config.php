@@ -4,44 +4,47 @@ namespace Store\Manager\Traits;
 
 use Phynixmedia\Store\Store;
 use Phynixmedia\Store\Core\StoreConstants;
+use Store\Manager\Services\Token\TokenService;
 
 trait Config {
 
     protected $store;
 
+    private static function token(){
+
+        return (new TokenService())->token() ?? '';
+    }
+
     public static function config(){
+
         return [
-            'companyid'     => store_keys()->companyid,
-            'outletid'      => store_keys()->outletid,
+            'companyid'     => config("store-app.company_id"),
+            'outletid'      => config("store-app.outlet_id"),
         ];
     }
 
     public static function category(){
 
-        // _logger("Config:category ", store_token());
-        return (new Store())->load(store_token(), StoreConstants::CATEGORY_BRIDGE);
+        return (new Store())->load(self::token(), StoreConstants::CATEGORY_BRIDGE);
     }
 
     public static function products(){
 
-        // _logger("Config:category ", store_token());
-        return (new Store())->load(store_token(), StoreConstants::PRODUCTS_BRIDGE);
+        return (new Store())->load(self::token(), StoreConstants::PRODUCTS_BRIDGE);
     }
 
     public static function customers(){
 
-        // _logger("Config:category ", store_token());
-        return (new Store())->load(store_token(), StoreConstants::CUSTOMERS_BRIDGE);
+        return (new Store())->load(self::token(), StoreConstants::CUSTOMERS_BRIDGE);
     }
 
     public static function orders(){
         
-        // _logger("Config:category ", store_token());
-        return (new Store())->load(store_token(), StoreConstants::ORDERS_BRIDGE);
+        return (new Store())->load(self::token(), StoreConstants::ORDERS_BRIDGE);
     } 
 
     public static function voucher(){
 
-        return (new Store())->load(store_token(), StoreConstants::VOUCHER_BRIDGE);
+        return (new Store())->load(self::token(), StoreConstants::VOUCHER_BRIDGE);
     }
 }

@@ -2,10 +2,6 @@
 
 namespace Store\Manager\Services\Token;
 
-use Phynixmedia\Locator\Geo;
-use Phynixmedia\Store\Store;
-use Phynixmedia\Store\Core\StoreConstants;
-use Store\Manager\Services\Token\TokenAuthenticate;
 use Store\Manager\Repositories\Token\TokenRepository;
 
 class TokenService extends TokenAuthenticate
@@ -21,23 +17,6 @@ class TokenService extends TokenAuthenticate
 
         parent::__construct();
         $this->tokenRepository = new TokenRepository();
-    }
-    /**
-     * This should get token from database
-     */
-    public function get($request)
-    {
-
-        
-    }
-
-    /**
-     * This should store the new token
-     */
-    public function set($request)
-    {
-
-        
     }
 
     /**

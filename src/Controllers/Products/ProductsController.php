@@ -17,6 +17,19 @@ class ProductsController extends AppController
         parent::__construct();
     }
 
+    public function all(){
+
+        $product = $this->productService->all();
+
+        if($product){
+            $related = $this->productService->related(isset($product->namex) ? $product->namex : '');
+        }
+
+        return view('store::products.view', compact('product','page','related'));
+
+
+    }
+
     /**
      * 
      */

@@ -20,7 +20,7 @@
 | 3. products - category
 |--------------------------------------------------------------
 */
-Route::group(['middleware' => ['web']], function () 
+Route::group(['middleware' => 'web'], function ()
 {
 
     /*
@@ -31,7 +31,7 @@ Route::group(['middleware' => ['web']], function ()
     Route::group(['prefix' => 'store'], function()
     {
         Route::get('list/', 'Store\Manager\Controllers\Products\ProductsController@all')->name('store.view');
-        Route::get('/store/search', 'Store\Manager\Controllers\Products\ProductsController@search')->name('store.search');
+        Route::get('/search', 'Store\Manager\Controllers\Products\ProductsController@search')->name('store.search');
         Route::get('/{id}/selected/{name}', 'Store\Manager\Controllers\Products\ProductsController@get')->name('store.product.details');
         
         /*--------------------------------------------------------------------------

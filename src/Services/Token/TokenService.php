@@ -2,21 +2,23 @@
 
 namespace Store\Manager\Services\Token;
 
+use App\Services\Service;
 use Store\Manager\Repositories\Token\TokenRepository;
 
-class TokenService extends TokenAuthenticate
+class TokenService extends Service
 {
-
     protected $token_key = 'feramy_token_app';
-    protected $tokenRepository;
+
+    protected $authenticate;
 
     /**
      * 
      */
     public function __construct(){
 
-        parent::__construct();
-        $this->tokenRepository = new TokenRepository();
+        $this->authenticate = new TokenAuthenticate();
+
+        $this->repository = new TokenRepository();
     }
 
     /**
@@ -40,7 +42,7 @@ class TokenService extends TokenAuthenticate
             /**
              * Check database for valid token
              */
-            if($result = $this->tokenRepository->get()){
+            if($result = $this->repository->lastValid()){
 
                  /**
                  * set token to session
@@ -53,7 +55,7 @@ class TokenService extends TokenAuthenticate
             /**
              * Request for a fresh token from feramy server
              */
-            if($token = $this->requestToken() ){
+            if($token = $this->authenticate->requestToken() ){
 
                 /**
                  * set token to session
@@ -63,15 +65,11 @@ class TokenService extends TokenAuthenticate
                 /**
                  * set token to database
                  */
-                if(!$this->tokenRepository->set(map_request(
-                    [
+                if(!$this->repository->set(map_request([
                         'token' => $token, 
                         'expires_in'=>null
                     ]
-                ))){
-
-                    return '';
-                }
+                ))){ return ''; }
 
                 /**
                  * return token from session

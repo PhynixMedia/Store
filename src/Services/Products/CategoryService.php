@@ -1,6 +1,6 @@
 <?php
 
-namespace Store\Manager\Services\Products\Category;
+namespace Store\Manager\Services\Products;
 
 class CategoryService
 {
@@ -10,7 +10,7 @@ class CategoryService
     protected $category;
 
     /**
-     * 
+     *
      */
     public function __construct(){
 
@@ -40,19 +40,19 @@ class CategoryService
         $this->init();
 
         $params = self::config();
-        
+
         $params['categoryid'] = $id;
 
         $response = $this->category->getProducts($params, $pager);
 
         $products = $this->category->parser($response, "category");
-        
+
         if(! $products ){
             return false;
         }
 
         return $this->category->paginator($products, 'store.category.products', ["id"=>$id, "name"=>$name]);
-    
+
     }
 
 }

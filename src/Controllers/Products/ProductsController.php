@@ -21,11 +21,14 @@ class ProductsController extends AppController
 
         $product = $this->productService->all();
 
-        if($product){
-            $related = $this->productService->related(isset($product->namex) ? $product->namex : '');
-        }
+//        if($product){
+//            $related = $this->productService->related(isset($product->namex) ? $product->namex : '');
+//        }
 
-        return view('store::products.view', compact('product','page','related'));
+        dd($product);
+        $page = "Products";
+
+        return view('store::products.view', compact('product','page', 'related'));
 
 
     }

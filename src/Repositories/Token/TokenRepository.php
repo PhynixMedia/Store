@@ -2,41 +2,25 @@
 
 namespace Store\Manager\Repositories\Token;
 
-use App\Models\Token\ClientToken;
+use \Store\Manager\Models\ClientToken;
+use App\Repositories\CoreRepository;
 use App\Traits\RunTraits;
 
 use Carbon\Carbon;
 
-class TokenRepository
+class TokenRepository extends CoreRepository
 {
 
     use RunTraits;
 
-    /** 
-     * Constructor to bind model to repo
-     */
-    public function __construct()
-    {
+    public function __construct(){
 
+        $this->model = new ClientToken();
     }
 
-    /** 
-     * 
-     */
-    public function set($request){
-
-        return RunTraits::create(new ClientToken(), $request->all());
-    }
-
-    /** 
-     * 
-     */
-    public function get(){
+    public function lastValid(){
 
         $date = Carbon::now()->subDays(2)->toDateTimeString();
-
-        \Log::info("Token Repository --> " . $date);
-
         return ClientToken::where('created_at','>', $date)->first();
     }
 }

@@ -1,9 +1,6 @@
 
-{{-- dd($product) --}}
-        @php 
-
+        @php
             $category = $product->category ?? ''
-
         @endphp
 
         @php  $size_price = '';  @endphp
@@ -71,7 +68,6 @@
                                 </div>
 
                             </div>
-                               <!--Modal Tab Menu End-->
 
                             <!--Modal Tab Content Start-->
                             <div class="tab-content product-large-image-list">
@@ -193,7 +189,7 @@
 
 @endif
 
-    <!-- 
-        Single Row Products Panes Folder:
-     -->
+<!--
+  Single Row Products Panes Folder:
+-->
      @include('store::products.contents.related-products', ["related"=>$related ?? "", "columns"=>1])

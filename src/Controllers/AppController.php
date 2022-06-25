@@ -5,8 +5,7 @@ namespace Store\Manager\Controllers;
 use App\Http\Controllers\Controller;
 
 use Store\Manager\Services\Products\ProductService;
-use Store\Manager\Services\Products\Category\CategoryService;
-use Store\Manager\Services\Statistics\StatisticService;
+use Store\Manager\Services\Products\CategoryService;
 
 class AppController extends Controller{
 
@@ -18,7 +17,6 @@ class AppController extends Controller{
 
         $this->categoryService  = new CategoryService();  
         $this->productService   = new ProductService();
-        $this->statisticsService = new StatisticService();
     }
     
 }

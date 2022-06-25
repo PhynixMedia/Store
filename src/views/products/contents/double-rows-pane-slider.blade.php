@@ -32,7 +32,6 @@
 																
 								<div class="tab-slider-container">
 
-
 										@include('store::products.components.items.items-tab', ['products'=>_latest()])
 
 									<!--=======  single tab slider item  =======-->

@@ -10,14 +10,6 @@ class ProductService
 
     protected $products;
 
-    /**
-     * 
-     */
-    public function __construct(){
-
-
-    }
-
     public function init(){
 
         $this->products = self::products();
@@ -42,19 +34,19 @@ class ProductService
         return $this->products->all(self::config());
     }
 
-     /**
-     * 
+    /**
+     *
      */
     public function sales()
     {
         $this->init();
 
-        $params = array_merge(self::config(), ['conditions' => 1]); 
+        $params = array_merge(self::config(), ['conditions' => 1]);
         return $this->products->find($params);
     }
 
     /**
-     * 
+     *
      */
     public function search($search = false, $pager = 0)
     {
@@ -65,7 +57,7 @@ class ProductService
             return false;
         }
 
-        $params = array_merge(self::config(), ['search' => $search]); 
+        $params = array_merge(self::config(), ['search' => $search]);
 
         $response = $this->products->search($params, $pager);
 
@@ -75,14 +67,14 @@ class ProductService
     }
 
     /**
-     * 
+     *
      */
     public function related(string $search)
     {
 
         $this->init();
 
-        $params = array_merge(self::config(), ['search' => $search]); 
+        $params = array_merge(self::config(), ['search' => $search]);
 
         $response = $this->products->related($params);
 
@@ -90,14 +82,14 @@ class ProductService
     }
 
     /**
-     * 
+     *
      */
     public function latest()
     {
 
         $this->init();
 
-        $params = array_merge(self::config(), ['search' => $search]); 
+        $params = array_merge(self::config(), ['search' => $search]);
 
         $response = $this->products->related($params);
 
@@ -106,14 +98,14 @@ class ProductService
 
 
     /**
-     * 
+     *
      */
     public function getOnSales()
     {
 
         $this->init();
 
-        $params = array_merge(self::config(), ['conditions' => 2]); 
+        $params = array_merge(self::config(), ['conditions' => 2]);
 
         $response = $this->products->find($params);
 
@@ -122,31 +114,14 @@ class ProductService
         return $this->products->paginator($products, "store.search", []);
     }
 
+    /**
+     *
+     */
+    public function views(){}
 
     /**
-     * 
+     *
      */
-    public function viewCount($id): void
-    {
-        
-    }
-
-     /**
-     * 
-     */
-    public function views()
-    {
-
-        
-    }
-
-    /**
-     * 
-     */
-    public function getNew()
-    {
-
-        
-    }
+    public function getNew(){ }
 
 }

@@ -16,7 +16,7 @@
 				THIS IS THE PRODUCT LISTING SECTION OF THE STORE
 			--}}
 			@if($products ?? '')
-				@include('store::store.listing', ['products' => $products->data()])
+				@include('store::store.contents.listing', ['products' => $products->data()])
 			@endif
 
 

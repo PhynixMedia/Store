@@ -32,7 +32,7 @@ class StoreServiceProvider extends ServiceProvider
         $this->mergeConfigFrom(__DIR__ . '/config/store-app.php', 'store-app');
         $this->publishes([
             __DIR__ . '/config/store-app.php' => config_path('store-app.php'),
-            __DIR__ . '/views' => resource_path('views/vendor/'),
+            __DIR__ . '/views' => resource_path('views/vendor/store/'),
         ]);
 
         //register the view

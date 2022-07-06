@@ -5,33 +5,34 @@ namespace Store\Manager\Services\Products;
 
 class ProductService
 {
-
     use \Store\Manager\Traits\Config;
+
+    public function __construct(){
+
+        $this->init();
+    }
 
     protected $products;
 
-    public function init(){
-
+    private function init(){
         $this->products = self::products();
     }
 
     public function get($id){
 
-        $this->init();
-
         $params = array_merge(self::config(), ['productid' => $id]);
-
         $response = $this->products->get($params);
-
         return $this->products->parser($response, "products");
-
     }
 
     public function all(){
 
-        $this->init();
+        $response = $this->products->all(self::config());
 
-        return $this->products->all(self::config());
+        if(! $response = $this->products->parser($response, "products")){
+            return null;
+        }
+        return $this->products->paginator($response, "store.search", []);
     }
 
     /**
@@ -39,8 +40,6 @@ class ProductService
      */
     public function sales()
     {
-        $this->init();
-
         $params = array_merge(self::config(), ['conditions' => 1]);
         return $this->products->find($params);
     }
@@ -50,19 +49,12 @@ class ProductService
      */
     public function search($search = false, $pager = 0)
     {
-
-        $this->init();
-
         if(! $search){
             return false;
         }
-
         $params = array_merge(self::config(), ['search' => $search]);
-
         $response = $this->products->search($params, $pager);
-
         $products = $this->products->parser($response, "products");
-
         return $this->products->paginator($products, "store.search", []);
     }
 
@@ -72,27 +64,19 @@ class ProductService
     public function related(string $search)
     {
 
-        $this->init();
-
         $params = array_merge(self::config(), ['search' => $search]);
-
         $response = $this->products->related($params);
-
         return $this->products->parser($response, "products");
     }
 
     /**
      *
      */
-    public function latest()
+    public function latest($search)
     {
 
-        $this->init();
-
         $params = array_merge(self::config(), ['search' => $search]);
-
         $response = $this->products->related($params);
-
         return $this->products->parser($response, "products");
     }
 
@@ -103,14 +87,9 @@ class ProductService
     public function getOnSales()
     {
 
-        $this->init();
-
         $params = array_merge(self::config(), ['conditions' => 2]);
-
         $response = $this->products->find($params);
-
         $products = $this->products->parser($response, "products");
-
         return $this->products->paginator($products, "store.search", []);
     }
 

@@ -16,7 +16,7 @@
             @endforeach
         @endif
 
-        @include('store::store.contents.store-banner')
+        @include('store-app::store.contents.store-banner')
 
 
     @if($product??'')
@@ -192,4 +192,4 @@
 <!--
   Single Row Products Panes Folder:
 -->
-     @include('store::products.contents.related-products', ["related"=>$related ?? "", "columns"=>1])
+        @include('store-app::products.contents.related-products', ["related"=>$related ?? "", "columns"=>1])

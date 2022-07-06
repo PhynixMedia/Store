@@ -21,18 +21,18 @@
 
 									<div class="image">
                                         
-                                        @include('store::products.components.items.components.image')
+                                        @include('store-app::products.components.items.components.image')
 
-										@include('store::products.components.items.components.add-to-cart-btn')
+										@include('store-app::products.components.items.components.add-to-cart-btn')
                                         
 									</div>
 									<div class="product-content">
 										<div class="product-categories">
                                             <a href="#">{{ _value2($product, 'category', 'namex') }}</a>
 										</div>
-										@include('store::products.components.items.components.item-name')
+										@include('store-app::products.components.items.components.item-name')
 										<div class="price-box">
-                                            @include('store::products.components.items.components.price')
+                                            @include('store-app::products.components.items.components.price')
 										</div>
 									</div>
 									
@@ -48,22 +48,22 @@
 
 									<div class="image">
 
-                                        @include('store::products.components.items.components.image')
+                                        @include('store-app::products.components.items.components.image')
                                         
 									</div>
 									<div class="product-content">
 										<div class="product-categories">
                                             <a href="#">{{ _value2($product, 'category', 'namex') }}</a>
 										</div>
-										@include('store::products.components.items.components.item-name')
+										@include('store-app::products.components.items.components.item-name')
 										<div class="price-box mb-20">
-                                            @include('store::products.components.items.components.price')
+                                            @include('store-app::products.components.items.components.price')
 										</div>
 										<p class="product-description">
                                             {{ $product->description ?? ""}}
                                         </p>
                                         
-                                        @include('store::products.components.items.components.add-to-cart-btn', ["grid"=>true])
+                                        @include('store-app::products.components.items.components.add-to-cart-btn', ["grid"=>true])
 										
 									</div>
 									

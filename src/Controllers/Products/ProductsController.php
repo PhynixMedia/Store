@@ -19,16 +19,15 @@ class ProductsController extends AppController
 
     public function all(){
 
-        $product = $this->productService->all();
+        $products = $this->productService->all();
 
-        if($product){
+        if($products){
             $related = $this->productService->related(isset($product->namex) ? $product->namex : '');
         }
 
         $page = "";
 
-        return view('store::products.view', compact('product','page', 'related'));
-
+        return view('store-app::store.view', compact('products','page', 'related'));
 
     }
 

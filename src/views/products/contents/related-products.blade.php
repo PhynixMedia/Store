@@ -18,7 +18,7 @@
 								<div class="tab-slider-container">
 									<!--=======  single tab slider item  =======-->
 
-										@include('store::products.components.items.items-tab', ['products'=>$related, "columns"=>1])
+										@include('store-app::products.components.items.items-tab', ['products'=>$related, "columns"=>1])
 									
 									<!--=======  End of single tab slider product  =======-->
 								</div>

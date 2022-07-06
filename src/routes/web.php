@@ -28,6 +28,7 @@ Route::group(['middleware' => 'web'], function ()
     | Products Routes
     |--------------------------------------------------------------------------
     */
+    //http://localhost:8000/store/list
     Route::group(['prefix' => 'store'], function()
     {
         Route::get('list/', 'Store\Manager\Controllers\Products\ProductsController@all')->name('store.view');

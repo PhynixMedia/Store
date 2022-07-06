@@ -10,7 +10,7 @@
 
 					@foreach($set as $product)
 
-						@include('store::products.components.items.column', ['product'=>$product])
+						@include('store-app::products.components.items.column', ['product'=>$product])
 
 					@endforeach
 

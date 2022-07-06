@@ -20,7 +20,7 @@
 								<div class="tab-slider-container">
 									<!--=======  single tab slider item  =======-->
 
-										@include('store::products.components.items.items-tab', ['products'=>_products()])
+										@include('store-app::products.components.items.items-tab', ['products'=>_products()])
 									
 									<!--=======  End of single tab slider product  =======-->
 								</div>
@@ -32,7 +32,7 @@
 																
 								<div class="tab-slider-container">
 
-										@include('store::products.components.items.items-tab', ['products'=>_latest()])
+										@include('store-app::products.components.items.items-tab', ['products'=>_latest()])
 
 									<!--=======  single tab slider item  =======-->
 								</div>
@@ -44,7 +44,7 @@
 																
 								<div class="tab-slider-container">
 
-									@include('store::products.components.items.items-tab', ['products'=>_sales()])
+									@include('store-app::products.components.items.items-tab', ['products'=>_sales()])
 
 								<!--=======  single tab slider item  =======-->
 								</div>

@@ -4,7 +4,7 @@
 
                                         @foreach($products as $product)
 
-                                            @include('store::products.components.items.shop-item', ['product'=>$product])
+                                            @include('store-app::products.components.items.shop-item', ['product'=>$product])
 
                                         @endforeach
 

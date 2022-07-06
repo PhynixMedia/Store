@@ -32,7 +32,7 @@
                                         </li> -->
                                         
 
-                                        @include('web::includes.navigation.menu.category')
+{{--                                        @include('web::includes.navigation.menu.category')--}}
 
                                     </ul>
                                 </div>

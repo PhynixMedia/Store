@@ -1,3 +1,6 @@
+@extends("store-app::master")
+
+@section("store")
 
 			<!-- =============================================
 			=            Shop page container         =
@@ -34,3 +37,5 @@
 				</div>
 
 			@endif
+
+@endsection

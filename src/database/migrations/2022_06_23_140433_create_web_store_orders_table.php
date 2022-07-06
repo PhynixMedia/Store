@@ -14,20 +14,12 @@ class CreateWebStoreOrdersTable extends Migration
     public function up()
     {
         Schema::create('web_store_orders', function (Blueprint $table) {
-            $table->id();
-            $table->integer('customer_id');
+            $table->bigIncrements('id');
             $table->string('order_code');
-            $table->string('barcode')->nullable();
-            $table->dateTime('shipped_date')->default(now());
-            $table->string('pickup')->nullable();
-            $table->integer('payment_option_id');
-            $table->decimal('discount', 10, 2)->default(0);
-            $table->decimal('delivery_charge', 10, 2)->default(0);
-            $table->integer('address_id');
-            $table->text('comment')->nullable();
-            $table->string('order_source');
+            $table->string('address')->nullable();
+            $table->dateTime('account')->default(now());
+            $table->string('order')->nullable();
             $table->integer('status');
-            $table->text('cart_checkout');
             $table->timestamps();
         });
     }

@@ -40,8 +40,8 @@ Route::group(['middleware' => 'web'], function ()
         |--------------------------------------------------------------------------*/
         Route::group(['prefix' => 'category'], function()
         {
-            Route::get('/', 'Store\Manager\Controllers\Products\Category\CategoryController@all')->name('store.category.view');
-            Route::get('/{id}/selected/{name}', 'Store\Manager\Controllers\Products\Category\CategoryController@get')->name('store.category.products');
+            Route::get('/', 'Store\Manager\Controllers\Products\CategoryController@all')->name('store.category.view');
+            Route::get('/{id}/selected/{name}', 'Store\Manager\Controllers\Products\CategoryController@get')->name('store.category.products');
         });
     });
 

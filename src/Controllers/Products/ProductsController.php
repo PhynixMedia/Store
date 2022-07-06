@@ -45,7 +45,7 @@ class ProductsController extends AppController
             $related = $this->productService->related(isset($product->namex) ? $product->namex : '');
         }
 
-        return view('store::products.view', compact('product','page','related'));
+        return view('store-app::products.view', compact('product','page','related'));
 
     }
 
@@ -70,7 +70,7 @@ class ProductsController extends AppController
             // create the actual request
             $products = $this->productService->search($search, request()->get('page') ?? 0);
 
-            return view('store::store.view', compact('products'));
+            return view('store-app::store.view', compact('products'));
     }
 
 }

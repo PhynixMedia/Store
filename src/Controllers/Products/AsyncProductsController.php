@@ -15,7 +15,7 @@ class AsyncProductsController extends AppController {
     public function get($id){
 
         $product = $this->productService->get($id);
-        return view('store::products.components.modals.quick-view.view', compact('product'))->render();
+        return view('store-app::products.components.modals.quick-view.view', compact('product'))->render();
     }
 
 
@@ -30,7 +30,7 @@ class AsyncProductsController extends AppController {
             // create the actual request
             $products = $this->productService->search($query);
 
-            return view('store::shop', compact('products'));
+            return view('store-app::shop', compact('products'));
     }
 
      /**

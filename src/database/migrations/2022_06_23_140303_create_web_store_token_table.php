@@ -15,7 +15,7 @@ class CreateWebStoreTokenTable extends Migration
     {
         Schema::create('web_store_token', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('token');
+            $table->longText('token');
             $table->timestamp('expires_in')->nullable();
             $table->timestamps();
         });

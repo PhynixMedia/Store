@@ -20,7 +20,7 @@ class TokenRepository extends CoreRepository
 
     public function lastValid(){
 
-        $date = Carbon::now()->subDays(2)->toDateTimeString();
+        $date = Carbon::now()->subDays(1)->toDateTimeString();
         return ClientToken::where('created_at','>', $date)->first();
     }
 }

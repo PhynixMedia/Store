@@ -3,6 +3,8 @@
 namespace Store\Manager\Services\Products;
 
 
+use Store\Manager\Services\Token\TokenService;
+
 class ProductService
 {
     use \Store\Manager\Traits\Config;
@@ -32,6 +34,7 @@ class ProductService
         if(! $response = $this->products->parser($response, "products")){
             return null;
         }
+
         return $this->products->paginator($response, "store.search", []);
     }
 

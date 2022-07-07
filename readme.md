@@ -6,6 +6,13 @@ Feramy RMS. Products and other related items will be
 fetched directly from Feramy RMS
 ```
 
-http://localhost:8002/store/category/127/selected/SALADS
+```angular2html
 
-http://localhost:8002/store/list
+route('store.view') // GET METHOD // /store/list
+route('store.search'); // GET METHOD
+route('store.product.details', ['id'=>$id, 'name'=>$name]) // GET METHOD /store/category/127/selected/SALADS
+route('store.category.view') // GET METHOD
+route('store.category.products') // GET METHOD
+
+```
+

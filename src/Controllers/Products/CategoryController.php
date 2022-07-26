@@ -6,7 +6,6 @@ use Store\Manager\Controllers\AppController;
 
 class CategoryController extends AppController {
 
-
     public function __construct(){
 
         parent::__construct();

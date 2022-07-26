@@ -15,10 +15,10 @@ class CreateWebStoreOrdersTable extends Migration
     {
         Schema::create('web_store_orders', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('order_code');
+            $table->string('order_code')->index();
             $table->string('address')->nullable();
             $table->dateTime('account')->default(now());
-            $table->string('order')->nullable();
+            $table->string('order');
             $table->integer('status');
             $table->timestamps();
         });

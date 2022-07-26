@@ -33,7 +33,7 @@ Route::group(['middleware' => 'web'], function ()
     {
         Route::get('list/', 'Store\Manager\Controllers\Products\ProductsController@all')->name('store.view');
         Route::get('/search', 'Store\Manager\Controllers\Products\ProductsController@search')->name('store.search');
-        Route::get('/{id}/selected/{name}', 'Store\Manager\Controllers\Products\ProductsController@get')->name('store.product.details');
+        Route::get('/products/{id}/selected/{name}', 'Store\Manager\Controllers\Products\ProductsController@get')->name('store.product.details');
         
         /*--------------------------------------------------------------------------
         | Products Category Routes

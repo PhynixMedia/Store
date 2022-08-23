@@ -1,6 +1,6 @@
 <?php
 
-namespace Store\Manager\Controllers\Orders;
+namespace Store\Manager\Controllers\Customers;
 
 use Store\Manager\Controllers\AppController;
 

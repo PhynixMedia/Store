@@ -45,7 +45,7 @@ Route::group(['middleware' => 'web'], function ()
         });
 
         Route::group(['prefix' => 'orders'], function() {
-            Route::get('/checkout/fulfilment', 'Store\Manager\Controllers\OrdersController@fulfilment')->name('checkout.fulfilment');
+            Route::get('/checkout/fulfilment', 'Store\Manager\Controllers\Customers\OrdersController@fulfilment')->name('checkout.fulfilment');
         });
     });
 

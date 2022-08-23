@@ -21,7 +21,7 @@ class OrdersController extends AppController {
 
             \Log::info("Response Date" . json_encode($response));
 
-            if (_value($response, "status") == "success") {
+            if (_value($response, "data")) {
                 return redirect()->to(route('checkout.success', ["status" => "success"]))->withSuccess('Payment successfully processed.');
             }
 

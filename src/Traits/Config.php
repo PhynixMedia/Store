@@ -18,8 +18,8 @@ trait Config {
     public static function config(){
 
         return [
-            'companyid'     => config("store-app.company_id"),
-            'outletid'      => config("store-app.outlet_id"),
+            'companyid'     => (int) config("store-app.company_id"),
+            'outletid'      => (int) config("store-app.outlet_id"),
         ];
     }
 

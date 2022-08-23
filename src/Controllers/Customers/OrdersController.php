@@ -11,7 +11,14 @@ class OrdersController extends AppController {
         parent::__construct();
     }
 
-    public function index(){
+    public function fulfilment(){
+
+        // payload array to be sent to server
+        $response = $this->orderService->checkout(cart_checkout());
+        if(_value($response, "status") == "success"){
+            return redirect()->to(route('checkout.success', ["status"=>"success"]))->withSuccess('Payment successfully processed.');
+        }
+        return redirect()->to(route('checkout.cancel', ["status"=>"failed"]))->withError('Unable to process payment, Please contact support.');
 
     }
 

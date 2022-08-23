@@ -43,6 +43,10 @@ Route::group(['middleware' => 'web'], function ()
             Route::get('/', 'Store\Manager\Controllers\Products\CategoryController@all')->name('store.category.view');
             Route::get('/{id}/selected/{name}', 'Store\Manager\Controllers\Products\CategoryController@get')->name('store.category.products');
         });
+
+        Route::group(['prefix' => 'orders'], function() {
+            Route::get('/checkout/fulfilment', 'Cart\App\Controllers\CheckoutsController@fulfilment')->name('checkout.fulfilment');
+        });
     });
 
     /*--------------------------------------------------------------------------

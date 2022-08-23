@@ -15,6 +15,9 @@ class OrdersController extends AppController {
 
         // payload array to be sent to server
         $response = $this->orderService->checkout(cart_checkout());
+
+        \Log::info("Response Date" . json_encode($response));
+
         if(_value($response, "status") == "success"){
             return redirect()->to(route('checkout.success', ["status"=>"success"]))->withSuccess('Payment successfully processed.');
         }

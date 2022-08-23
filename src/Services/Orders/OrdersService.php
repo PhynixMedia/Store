@@ -20,7 +20,8 @@ class OrdersService
     public function checkout(array $params){
 
         $data = array_merge(self::config(), $params);
-        return $this->order->checkout($data);
+        $response = $this->order->checkout($data);
+        return $this->order->parser($response, "orders");
     }
 
 }

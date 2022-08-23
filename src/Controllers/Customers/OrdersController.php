@@ -13,16 +13,36 @@ class OrdersController extends AppController {
 
     public function fulfilment(){
 
-        // payload array to be sent to server
-        $response = $this->orderService->checkout(cart_checkout());
+        $params = cart_checkout();
 
-        \Log::info("Response Date" . json_encode($response));
+        try {
+            // payload array to be sent to server
+            $response = $this->orderService->checkout($params);
 
-        if(_value($response, "status") == "success"){
-            return redirect()->to(route('checkout.success', ["status"=>"success"]))->withSuccess('Payment successfully processed.');
+            \Log::info("Response Date" . json_encode($response));
+
+            if (_value($response, "status") == "success") {
+                return redirect()->to(route('checkout.success', ["status" => "success"]))->withSuccess('Payment successfully processed.');
+            }
+
+            self::notify($params);
+
+            return redirect()->to(route('checkout.cancel', ["status" => "failed"]))->withError('Unable to process payment, Please contact support.');
+
+        }catch(\Exception $e){
+
+            self::notify($params);
+
+            \Log::info("Response Date" . $e->getMessage());
+            return redirect()->to(route('checkout.cancel', ["status" => "failed"]))->withError('Oops! There was an issue with your request, we will notify the admin on your behalf.');
+
         }
-        return redirect()->to(route('checkout.cancel', ["status"=>"failed"]))->withError('Unable to process payment, Please contact support.');
+    }
 
+    private static function notify(array $params){
+        // send notification to admin about this error
+
+        \Log::info("Response Date" . json_encode($params));
     }
 
 }
